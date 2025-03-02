@@ -33,7 +33,7 @@ const TopBar=({ setCategories })=> {
 
   return (
     <Navbar expand="lg" className="bg-body-secondary border-bottom py-3  ">
-      <Container fluid>
+      <Container >
         <Navbar.Brand className="text-uppercase btn text-primary" onClick={()=>{navigate("/")}}>My Shop</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">

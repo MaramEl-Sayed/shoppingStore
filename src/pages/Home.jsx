@@ -7,7 +7,6 @@ import { useDispatch } from "react-redux";
 import { useOutletContext } from "react-router-dom";
 import { addTodCart } from "../Redux/slices/cart.slice";
 
-
 const Home = () => {
   const [products, setProducts] = useState([]);
   const { selectedCategories } = useOutletContext();
@@ -40,37 +39,31 @@ const Home = () => {
         <div className="row">
           <h3 className="text-primary text-uppercase mb-5">All Products</h3>
           {products.map((product) => (
-            <div
-              className="col-md-4 col-sm-12 my-2"
-              key={product.id}
-              
-            >
-              <Card style={{ width: "100%", height: "32rem" }} >
-                <Card.Img
-                  variant="top"
-                  style={{ height: "15rem" }}
-                  src={product.thumbnail}
-                />
+            <div className="col-lg-3 col-md-6 col-sm-12 my-2" key={product.id}>
+              <Card className="h-100">
+                {" "}
+                {/* Use h-100 to ensure cards take full height */}
+                <Card.Img variant="top" src={product.thumbnail} />
                 <Card.Body className="d-flex flex-column justify-content-between">
                   <Card.Title>{product.title}</Card.Title>
                   <Card.Text className="fs-6 text-secondary">
                     {product.description}
                   </Card.Text>
-                  <div className="d-flex justify-content-around">
-                  <Button
-                    variant="primary"className="w-50 m-3"
-                    onClick={() => addToProductToCart(product)}
-                  >
-                    Add to Cart
-                  </Button>
-                  <Button
-                    variant="primary"className="w-50 m-3"
-                    onClick={() => navigate(`/product/${product.id}`)}
-                  >
-                    View Product
-                  </Button>
+                  <div className="d-flex justify-content-center align-items-center mt-auto">
+                    <Button
+                      variant="primary"
+                      onClick={() => addToProductToCart(product)}
+                      className="me-2"
+                    >
+                      Add to Cart
+                    </Button>
+                    <Button
+                      variant="primary"
+                      onClick={() => navigate(`/product/${product.id}`)}
+                    >
+                      View Product
+                    </Button>
                   </div>
-                  
                 </Card.Body>
               </Card>
             </div>
